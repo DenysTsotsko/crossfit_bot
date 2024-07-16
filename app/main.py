@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel 
 
 # object 
-app = FastAPI()
+
 
 
 # endpoint 
