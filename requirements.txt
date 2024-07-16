@@ -1,0 +1,6 @@
+# pip install -r requirements.txt to install all libraries from this file
+fastapi 
+# uvicorn helps us to raise up a small server locally on the computer 
+uvicorn
+# openai for gpt model 
+openai 
