@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "crossfit-app"
+version = "0.1.0"
+description = ""
+authors = ["DenysTsotsko <denistsotsko@icloud.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiogram = "^3.10.0"
+python-dotenv = "^1.0.1"
+openai = "^1.35.15"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
