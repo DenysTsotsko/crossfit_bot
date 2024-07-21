@@ -2,4 +2,9 @@ from aiogram.fsm.state import StatesGroup, State
 
 
 class WorkOutForm(StatesGroup): 
-    pass
+    kind = State()
+    time = State()
+    muscles = State()
+    equipment = State()
+    level = State()
+    gender = State()
