@@ -5,10 +5,10 @@ from openai import AsyncOpenAI
 
 from config import OPENAI_API_KEY, BOT_TOKEN
 
-from handlers import bot_messages, user_commands
+from handlers import user_commands, questionare, bot_messages
 
 
-openai_client = AsyncOpenAI(api_key=OPENAI_API_KEY)
+# openai_client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
 
 async def main():
@@ -16,7 +16,9 @@ async def main():
     dp = Dispatcher()
 
     dp.include_routers(
-        user_commands.router
+        user_commands.router,
+        questionare.router, 
+        bot_messages.router
     )
 
     await bot.delete_webhook(drop_pending_updates=True)
@@ -25,4 +27,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    run(main())
+    try:
+        run(main())
+    except KeyboardInterrupt:
+        pass
