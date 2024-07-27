@@ -1,11 +1,11 @@
 import os
-from openai import AsyncOpenAI
 
+from groq import AsyncGroq
 from config_reader import config
 
 
-client = AsyncOpenAI(
-    api_key=config.OPENAI_API.get_secret_value()
+client = AsyncGroq(
+    api_key=config.GROQ_API_KEY.get_secret_value(),
 )
 
 async def generating_promt(request: str):
@@ -16,6 +16,6 @@ async def generating_promt(request: str):
                 "content": request,
             }
         ],
-        model="gpt-3.5-turbo",
+        model="llama3-8b-8192",
     )
     return chat_completion.choices[0].message.content
