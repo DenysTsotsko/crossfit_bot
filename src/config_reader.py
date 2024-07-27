@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings): 
     BOT_TOKEN: SecretStr
-    OPENAI_API: SecretStr
+    GROQ_API_KEY: SecretStr
 
 
     model_config = SettingsConfigDict(
