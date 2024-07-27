@@ -1,18 +1,21 @@
 from asyncio import run
 
 from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
 from openai import AsyncOpenAI
-
-from config import OPENAI_API_KEY, BOT_TOKEN
 
 from handlers import user_commands, questionare, bot_messages
 
+from config_reader import config
 
-# openai_client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
 
 async def main():
-    bot = Bot(BOT_TOKEN)
+    bot = Bot(
+        config.BOT_TOKEN.get_secret_value(), 
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+    )
     dp = Dispatcher()
 
     dp.include_routers(

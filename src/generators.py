@@ -1,11 +1,11 @@
 import os
 from openai import AsyncOpenAI
 
-from config import OPENAI_API_KEY
+from config_reader import config
 
 
 client = AsyncOpenAI(
-    api_key=OPENAI_API_KEY,
+    api_key=config.OPENAI_API.get_secret_value()
 )
 
 async def generating_promt(request: str):
