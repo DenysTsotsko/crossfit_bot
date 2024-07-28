@@ -8,7 +8,9 @@ from aiogram.fsm.state import State
 
 from utils.states import WorkOutForm
 
+
 from keyboards.reply import *
+from generators import generating_promt
 
 router = Router()
 
@@ -82,6 +84,5 @@ async def form_gender(message: Message, state: FSMContext) -> None:
          formatted_text.append(f"{key}: {value}")
          for key, value in data.items()
      ]
-
-     await message.answer(text="Okay champion here is your complex:", reply_markup=main_kb)
-     await message.answer("\n".join(formatted_text))
+     response = await generating_promt(formatted_text)
+     await message.answer(response, reply_markup=main_kb)
